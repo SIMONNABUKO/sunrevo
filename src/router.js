@@ -4,6 +4,7 @@ import Contact from "./components/Contact.vue";
 import AboutUs from "./components/AboutUs.vue"; 
 import Services from "./components/Services.vue";
 import Projects from "./components/Projects.vue";
+import Inquire from "./components/Inquire.vue";
 
 const routes = [
     {
@@ -30,12 +31,32 @@ const routes = [
         name: 'Projects',
         component: Projects,
         path: '/projects'
+    },
+    {
+      name: 'Inquire',
+      component: Inquire,
+      path: '/inquire'
     }
 ];
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes
+	history: createWebHashHistory(import.meta.env.BASE_URL),
+	routes,
+	scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      // When navigating back/forward
+      return savedPosition;
+    } else if (to.hash) {
+      // Scroll to anchor hash with smooth behavior
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      };
+    } else {
+      // Scroll to top of page with smooth behavior
+      return { top: 0, behavior: 'smooth' };
+    }
+  },
 });
 
 export default router;

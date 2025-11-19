@@ -15,42 +15,42 @@
     <!--Show the dropdown if the menu is open-->
     <div
       v-show="isOpen"
-      class="text-lg font-semibold absolute top-[128px] left-0 lg:hidden justify-center items-center z-50"
+      class="text-lg font-semibold fixed top-[128px] left-0 lg:hidden justify-center items-center z-50"
     >
       <ul class="translucent flex flex-col bg-gradient-to-r from-white/60 to-blue-200/60 backdrop-blur-md p-3 text-blue-950 items-center md:w-72 w-[350px] rounded shadow">
           <li @click="closeMenu" class="h-9 border-r-0 border-l-0 border-t-0 border-blue-900 w-full hover:bg-slate-400 hover:text-white transition">
             <router-link to="/" class="text-center w-full h-full inline-block">HOME</router-link>
           </li>
           <li @click="closeMenu" class="h-9 border border-r-0 border-l-0 border-b-0 w-full border-blue-900 hover:bg-slate-400 hover:text-white transition">
-            <router-link to="/about" class="text-center w-full h-full inline-block">CONTACT</router-link>
+            <router-link to="/contact" class="text-center w-full h-full inline-block">CONTACT</router-link>
           </li>
           <li @click="closeMenu" class="h-9 border border-r-0 border-l-0 border-b-0 border-blue-900 w-full hover:bg-slate-400 hover:text-white transition">
-            <router-link to="/products" class="text-center w-full h-full inline-block">ABOUT US</router-link>
+            <router-link to="/about" class="text-center w-full h-full inline-block">ABOUT US</router-link>
           </li>
           <li @click="closeMenu" class="h-9 border border-r-0 border-l-0 border-blue-900 border-b-0 w-full hover:bg-slate-400 hover:text-white transition">
-            <router-link to="/gallery" class="text-center w-full h-full inline-block">SERVICES</router-link>
+            <router-link to="/services" class="text-center w-full h-full inline-block">SERVICES</router-link>
           </li>
           <li @click="closeMenu" class="h-9 border border-r-0 border-l-0 border-blue-900 w-full hover:bg-slate-400 hover:text-white transition">
-            <router-link to="/contacts" class="text-center w-full h-full inline-block">PROJECTS</router-link>
+            <router-link to="/projects" class="text-center w-full h-full inline-block">PROJECTS</router-link>
           </li>
         </ul>
     </div>
 
     <div id="logo" class="cursor-pointer">
-      <img class="lg:h-14 md:h-10 sm:h-9 h-9" src="../assets/sunrevo.jpeg" />
+      <img class="lg:h-14 md:h-10 sm:h-9 h-11" src="../assets/sunrevo.jpeg" />
     </div>
     <ul class="hidden lg:flex justify-around items-center text-blue-800">
-      <li class="mr-8 cursor-pointer font-semibold">HOME</li>
-      <li class="mr-8 cursor-pointer font-semibold">CONTACT</li>
-      <li class="mr-8 cursor-pointer font-semibold">ABOUT US</li>
-      <li class="mr-8 cursor-pointer font-semibold">SERVICES</li>
-      <li class="mr-8 cursor-pointer font-semibold">PROJECTS</li>
+      <router-link to="/"><li class="mr-8 cursor-pointer font-semibold">HOME</li></router-link>
+      <router-link to="/contact"><li class="mr-8 cursor-pointer font-semibold">CONTACT</li></router-link>
+      <router-link to="/about"><li class="mr-8 cursor-pointer font-semibold">ABOUT US</li></router-link>
+      <router-link to="/services"><li class="mr-8 cursor-pointer font-semibold">SERVICES</li></router-link>
+      <router-link to="/projects"><li class="mr-8 cursor-pointer font-semibold">PROJECTS</li></router-link>
     </ul>
-    <button
+    <router-link to="/inquire"><button
       class="border flex justify-center items-center h-10 lg:h-12 px-2 rounded bg-blue-950 font-semibold text-white hover:bg-white hover:text-blue-950 transition-colors duration-500 active:bg-blue-700 active:text-white"
     >
       <i class="fa-solid fa-inbox"></i>Inquire Now
-    </button>
+    </button></router-link>
   </nav>
 </template>
 

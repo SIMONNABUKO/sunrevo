@@ -1,13 +1,12 @@
 <template>
   <TelBar/>
   <NavBar/>
-  <Hero/>
-  <Home/>
+  <RouterView/>
+  <Footer/>
 </template>
 
 <script setup>
 import TelBar from './components/TelBar.vue';
 import NavBar from './components/NavBar.vue';
-import Hero from './components/Hero.vue';
-import Home from './components/Home.vue';
+import Footer from './components/Footer.vue';
 </script>
