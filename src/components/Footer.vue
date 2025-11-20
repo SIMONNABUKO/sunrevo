@@ -1,41 +1,43 @@
 <template>
-    <footer class="relative bg-gray-300 backdrop-blur-md text-white pt-10">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-      
-      <!-- Company Info -->
-      <div>
-        <h2 class="text-2xl font-bold mb-3 text-blue-950">SUNREVO SOLAR POWER COMPANY</h2>
-        <div class="flex md:justify-start justify-center">
-            <img src="../assets/sunrevo.jpeg" alt="Company-Logo" class="h-12">
+  <footer class="bg-slate-950 text-slate-200">
+    <div class="section-shell grid gap-6 py-12 lg:grid-cols-3">
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <img src="../assets/sunrevo.jpeg" alt="Logo" class="h-12 w-12 rounded-2xl object-cover" />
+          <div>
+            <p class="text-sm uppercase tracking-[0.4em] text-amber-300">SunRevo</p>
+            <p class="text-xs text-slate-400">Solar Power Company</p>
+          </div>
         </div>
-        
-        <p class="text-blue-900">
-          SunRevo Power provides affordable, reliable, and eco-friendly solar energy solutions for homes and businesses across Kenya.
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Affordable, reliable solar and storage solutions for Kenyan homes, farms, and businesses with 24/7 support.
         </p>
+        <div class="flex items-center gap-3 text-xl text-amber-300">
+          <a href="https://facebook.com" target="_blank" rel="noreferrer"><i class="fab fa-facebook"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+        </div>
       </div>
-
-      <!-- Quick Links -->
       <div>
-        <h3 class="text-lg font-semibold mb-3 text-blue-950">Quick Links</h3>
-        <ul class="space-y-2 text-blue-500">
-          <li><router-link to="/" class="hover:text-white transition">Home</router-link></li>
-          <li><router-link to="/contact" class="hover:text-white transition">Contact</router-link></li>
-          <li><router-link to="/about" class="hover:text-white transition">About</router-link></li>
-          <li><router-link to="/services" class="hover:text-white transition">Services</router-link></li>
-          <li><router-link to="/projects" class="hover:text-white transition">Projects</router-link></li>
+        <p class="text-sm uppercase tracking-[0.4em] text-amber-300">Navigation</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-300">
+          <li><router-link to="/" class="hover:text-white">Home</router-link></li>
+          <li><router-link to="/services" class="hover:text-white">Services</router-link></li>
+          <li><router-link to="/projects" class="hover:text-white">Projects</router-link></li>
+          <li><router-link to="/about" class="hover:text-white">About</router-link></li>
+          <li><router-link to="/contact" class="hover:text-white">Contact</router-link></li>
         </ul>
-         <a href="https://freepik.com" target="_blank">Image By FreePick</a>
       </div>
-            
-      <!-- Contact Info -->
       <div>
-        <h3 class="text-lg font-bold mb-3 text-blue-950">Get in Touch</h3>
-        <p class="text-blue-500"> MSA Rd, Kenya</p>
-        <p class="text-blue-500">+254 780818238</p>
-        <p class="text-blue-500">info@sunrevo.com</p>
+        <p class="text-sm uppercase tracking-[0.4em] text-amber-300">Contact</p>
+        <div class="mt-4 space-y-2 text-sm text-slate-300">
+          <p>MSA Rd, Nairobi • Kenya</p>
+          <p>+254 780 818 238</p>
+          <p>info@sunrevo.com</p>
+        </div>
       </div>
     </div>
-    <div class="border-t border-white/20 py-4 mt-4 text-center text-blue-200 text-base bg-blue-950">
+    <div class="border-t border-white/10 bg-slate-900 text-center py-4 text-xs text-slate-400">
       © {{ new Date().getFullYear() }} SunRevo Power. All rights reserved.
     </div>
   </footer>

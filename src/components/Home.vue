@@ -1,162 +1,174 @@
 <template>
-    <Hero/>
-    <section>
-    <div class="mt-12 grid lg:grid-cols-2 w-[89%] lg:w-3/4 mr-auto ml-auto gap-7">
-        <div class="flex flex-col justify-between ">
-            <h1 class="font-serif font-semibold text-xl md:text-2xl lg:text-3xl text-blue-900 mb-5">Transforming the Future of Energy with Solar Technology</h1>
-            <h1 class="font-mono text-2xl mb-1 text-blue-900">About Sunrevo Solar Power</h1>
-            <p class="mb-1 text-blue-900">About SunRevo Power
-SunRevo Power started as a solar lighting company driven by a mission to make clean and sustainable energy accessible to everyone. Over time, we have expanded into one of <strong>the most trusted</strong> solar providers in Mombasa and across Kenya—known for our affordability, technical expertise, and strong commitment to environmental conservation.
-
-Today, SunRevo Power focuses on supplying and installing high-quality, reliable, and eco-friendly solar energy systems. By combining modern technology with practical experience, we deliver solutions that lower energy costs while supporting a greener future.</p>
+  <Hero />
+  <section class="section-shell space-y-20 pb-20 pt-16 reveal-on-scroll">
+    <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="glass-panel p-8 space-y-6">
+        <p class="text-sm uppercase tracking-[0.6em] text-amber-300">About SunRevo</p>
+        <h2 class="text-3xl md:text-4xl font-semibold text-white leading-tight">
+          We design, install, and care for solar energy systems that power modern Kenyan lives.
+        </h2>
+        <p class="text-slate-200 leading-relaxed">
+          SunRevo Solar Power launched as a lighting-focused team and has grown into one of Mombasa's most trusted renewable energy partners. From residential rooftops to industrial microgrids, we balance affordability with innovation so every project lowers costs and carbon footprints.
+        </p>
+        <div class="grid gap-4 sm:grid-cols-3">
+          <article v-for="stat in homeStats" :key="stat.label" class="p-4 bg-white/5 rounded-2xl border border-white/10">
+            <p class="text-2xl font-bold text-white">{{ stat.value }}</p>
+            <p class="text-xs uppercase tracking-[0.4em] text-slate-300">{{ stat.label }}</p>
+          </article>
         </div>
-    <div class="flex flex-col justify-between my-auto">
-        <img src="../assets/home1.jpg" alt="Homestead-Power" class="rounded-2xl">
-    </div>
-    </div>
-
-    <div class="bg-gray-200 mt-8">
-        <div class="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 gap-10 justify-around items-center lg:w-[60%] md:w-[75%] w-[92%] mx-auto py-8">
-        <div class="bg-blue-950 rounded grid items-center justify-center hover:shadow-black hover:shadow-lg  cursor-pointer transition duration-200">
-            <img src="../assets/customizable11.svg" alt="customizable1" class="h-3/4 rounded-full p-2 border-blue-300 mx-4 border-2">
-            <p class="text-blue-300 text-center font-bold">Home Power</p>
-        </div>
-        <div class="bg-blue-950 rounded grid items-center justify-center hover:shadow-black hover:shadow-lg cursor-pointer transition duration-200">
-            <img src="../assets/customizable22.svg" alt="customizable2" class="h-3/4 rounded-full p-2 border-blue-300 border-2">
-            <p class="text-blue-300 text-center font-bold">Grid Solar</p>
-        </div>
-        <div class="bg-blue-950 rounded grid items-center justify-center hover:shadow-black hover:shadow-lg cursor-pointer transition duration-200">
-            <img src="../assets/customizable33.svg" alt="customizable3" class="h-3/4 rounded-full p-2 border-blue-300 border-2">
-            <p class="text-blue-300 text-center font-bold">Water Pump</p>
-        </div>
-        <div class="bg-blue-950 rounded grid items-center justify-center hover:shadow-black hover:shadow-lg cursor-pointer transition duration-200">
-            <img src="../assets/customizable44.svg" alt="customizable4" class="h-3/4 rounded-full p-2 border-blue-300 border-2">
-            <p class="text-blue-300 text-center font-bold">Power Backup</p>
-        </div>
-        <div class="bg-blue-950 rounded grid items-center justify-center hover:shadow-black hover:shadow-lg cursor-pointer transition duration-200">
-            <img src="../assets/customizable555.svg" alt="customizable5" class="h-3/4 rounded-full p-2 border-blue-300 border-2">
-            <p class="text-blue-300 text-center font-bold">Lighting Solar</p>
-        </div>
-        <div class="bg-blue-950 rounded grid items-center justify-center hover:shadow-black   hover:shadow-lg cursor-pointer transition duration-200">
-            <img src="../assets/customizable66.svg" alt="customizable6" class="h-3/4 border-2 rounded-full p-2 border-blue-300">
-            <p class="text-blue-300 text-center font-bold">Water Heater</p>
-        </div>
-        </div>
-    </div>
-
-    <!--Our Services-->
-    <div class="bg-gray-100">
-     <div class="relative bg-cover bg-center" :style="{ backgroundImage: `url(${ServicesBanner})` }">
-        <div class="absolute inset-0 bg-black/65"></div>
-        <div class="relative z-10 flex flex-col items-center justify-center min-h-[50vh]">
-            <h1 class="text-blue-200 font-normal text-center text-4xl sm:text-5xl md:text-7xl font-serif">
-                Our Services
-            </h1>
-        </div>
-    </div>
-    <!--Services Grid--> 
-    <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 mx-auto lg:w-4/5 w-[90%] -mt-14">
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/installation.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar System Installation</p>
-            <p class="text-white">Complete installation of solar panels, inverters, batteries, charge controllers, and other system components for homes, businesses, and industries.</p>
-            <router-link to="/services"><button class="bg-blue-300 rounded-sm py-1 mt-3 hover:bg-blue-900 hover:text-blue-300 transition duration-300 font-bold w-full">Learn More...</button></router-link>
-        </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/installation2.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar System Design and Consultation</p>
-            <p class="text-white">Assessing customer energy needs and designing customized solar solutions, including site surveys, load assessment, and professional recommendations.</p>
-            <router-link to="/services"><button class="bg-blue-300 rounded-sm py-1 mt-3 hover:bg-blue-900 hover:text-blue-300 transition duration-300 font-bold w-full">Learn More...</button></router-link>
-        </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/repair.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar Maintenance and Repair</p>
-            <p class="text-white">Routine system checkups, cleaning, troubleshooting, and repair of faulty panels, inverters, batteries, and wiring to ensure peak performance.</p>
-            <router-link to="/services"><button class="bg-blue-300 rounded-sm py-1 mt-3 hover:bg-blue-900 hover:text-blue-300 transition duration-300 font-bold w-full">Learn More...</button></router-link>
-        </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/energyaudit.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Energy Audits and Efficiency Optimization</p>
-            <p class="text-white">Evaluating energy usage and providing solutions to reduce electricity costs through solar integration and energy-efficient technologies.</p>
-            <router-link to="/services"><button class="bg-blue-300 rounded-sm py-1 mt-3 hover:bg-blue-900 hover:text-blue-300 transition duration-300 font-bold w-full">Learn More...</button></router-link>
-        </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/last.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar Equipment Sales</p>
-            <p class="text-white">Selling high-quality solar products such as panels, batteries, inverters, solar lights, charge controllers, water pumps, and solar accessories.</p>
-           <router-link to="/services"><button class="bg-blue-300 rounded-sm py-1 mt-3 hover:bg-blue-900 hover:text-blue-300 transition duration-300 font-bold w-full">Learn More...</button></router-link>
-        </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/installation1.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar Backup and Hybrid Systems</p>
-            <p class="text-white">Installation of backup power solutions, hybrid systems, and solar battery storage for reliable power during blackouts or off-grid setups.</p>
-            <router-link to="/services"><button class="bg-blue-300 rounded-sm py-1 mt-3 hover:bg-blue-900 hover:text-blue-300 transition duration-300 font-bold w-full">Learn More...</button></router-link>
-        </div>
-    </div>
-
-    <!--Why Choose SunRevo Power-->
-    <div id="wrapper" class="flex flex-col items-center justify-center bg-white lg:w-3/5 w-[90%] mx-auto mt-7 text-blue-950 py-10 shadow shadow-blue-800">
-    <h1 class="font-semibold lg:text-3xl md:text-2xl text-xl">Why Choose SUNREVO Power?</h1>
-        <div id="sub-wrapper" class="grid lg:grid-cols-3 md:grid-cols-2 gap-5 p-4">
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Trusted Solar Experts</h2>
-                <p>We bring years of hands-on experience to every project, ensuring reliable and professional solar solutions.</p>
+      </div>
+      <div class="glass-panel p-6 space-y-6">
+        <h3 class="text-2xl font-semibold text-white">What we offer</h3>
+        <div class="space-y-4">
+          <article
+            v-for="item in capabilityTiles"
+            :key="item.title"
+            class="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-4"
+          >
+            <span class="text-2xl text-amber-300"><i :class="item.icon"></i></span>
+            <div>
+              <p class="font-semibold text-white">{{ item.title }}</p>
+              <p class="text-sm text-slate-300 leading-relaxed">{{ item.description }}</p>
             </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Affordable, High-Quality Products</h2>
-                <p>Our systems are designed to give you the best performance at a price that fits your budget.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Professional Installation</h2>
-                <p>Our skilled technicians install every system with precision for maximum efficiency and long-term durability.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Proven Reliability</h2>
-                <p>With Over 100 successful solar projects delivered nation wide,
-                our systems are built to last and perform reliably in all conditions.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Fast and Reliable Support</h2>
-                <p>We provide timely assistance, maintenance, and after-sale support to keep your system running smoothly.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Commitment to Sustainability</h2>
-                <p>Choosing us means choosing clean, renewable energy that protects the environment and reduces electricity costs.</p>
-            </div>
+          </article>
         </div>
+      </div>
     </div>
 
-     <!--Our Projects-->
-    <div class="flex flex-col justify-center items-center my-10 w-full">
-       <div class="bg-blue-950 lg:w-3/5 w-[90%]">
-          <h1 class="text-center text-blue-400 text-3xl p-3 font-serif">Our Projects</h1>
-       </div>
-
-    <!--The projects-->
-       <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 my-6">
-        <div class="rounded-t-2xl lg:w-[360px] w-full flex flex-col bg-white shadow-lg items-center pb-4">
-            <img src="../assets/ourservices4.jpg" alt="services image" class="rounded-t-2xl w-full">
-            <p class="text-center font-semibold text-xl my-2 text-blue-900">12kW Solar System Mombasa</p>
-            <router-link to="/services" class="w-[90%]"><button class="bg-blue-400 w-full py-1 rounded-sm font-bold text-blue-950 hover:bg-blue-950 hover:text-blue-400 transition duration-300 active:bg-blue-400">View Project</button></router-link>
+    <div>
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <p class="text-xs uppercase tracking-[0.6em] text-amber-300">Solutions</p>
+          <h3 class="text-3xl font-semibold text-white">Tailored packages</h3>
         </div>
-        <div class="rounded-t-2xl lg:w-[360px] w-full flex flex-col bg-white shadow-lg items-center pb-4">
-            <img src="../assets/ourservices2.png" alt="services image" class="rounded-t-2xl w-full">
-            <p class="text-center font-semibold text-xl my-2 text-blue-900">12kW Solar System Mombasa</p>
-            <router-link to="/services" class="w-[90%]"><button class="bg-blue-400 w-full py-1 rounded-sm font-bold text-blue-950 hover:bg-blue-950 hover:text-blue-400 transition duration-300 active:bg-blue-400">View Project</button></router-link>
-        </div>
-        <div class="rounded-t-2xl lg:w-[360px] w-full flex flex-col bg-white shadow-lg items-center pb-4">
-            <img src="../assets/ourservices3.png" alt="services image" class="rounded-t-2xl w-full">
-            <p class="text-center font-semibold text-xl my-2 text-blue-900">12kW Solar System Mombasa</p>
-            <router-link to="/services" class="w-[90%]"><button class="bg-blue-400 w-full py-1 rounded-sm font-bold text-blue-950 hover:bg-blue-950 hover:text-blue-400 transition duration-300 active:bg-blue-400">View Project</button></router-link>
-        </div>
-       </div>
+        <router-link to="/services" class="text-amber-200 hover:text-white text-sm tracking-[0.4em] uppercase">View Services</router-link>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-3 md:grid-cols-2">
+        <article
+          v-for="(service, index) in serviceHighlights"
+          :key="service.title"
+          class="card-panel p-6 space-y-4 border border-white/20"
+        >
+          <div class="flex items-center justify-between text-sm uppercase tracking-[0.5em] text-amber-300">
+            <span>{{ service.category }}</span>
+            <span class="text-xs">{{ service.duration }}</span>
+          </div>
+          <h4 class="text-xl text-white font-semibold">{{ service.title }}</h4>
+          <p class="text-sm text-slate-200 leading-relaxed">{{ service.description }}</p>
+          <div class="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-amber-200">
+            <i class="fa-solid fa-circle"></i>
+            <span>{{ service.detail }}</span>
+          </div>
+        </article>
+      </div>
     </div>
 
+    <div class="space-y-8">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-xs uppercase tracking-[0.6em] text-amber-300">Projects</p>
+          <h3 class="text-3xl font-semibold text-white">Recent deployments</h3>
+        </div>
+        <router-link to="/projects" class="text-sm uppercase tracking-[0.4em] text-slate-200 hover:text-white">See all</router-link>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        <article v-for="project in projectGallery" :key="project.title" class="flex flex-col overflow-hidden rounded-3xl border border-white/20 bg-white/5 shadow-2xl">
+          <img :src="project.image" :alt="project.title" class="h-56 w-full object-cover" />
+          <div class="p-6 space-y-3">
+            <div class="flex items-center justify-between text-sm text-slate-300">
+              <span>{{ project.location }}</span>
+              <span>{{ project.size }}</span>
+            </div>
+            <h4 class="text-2xl text-white font-semibold">{{ project.title }}</h4>
+            <p class="text-sm text-slate-200 leading-relaxed">{{ project.summary }}</p>
+          </div>
+        </article>
+      </div>
     </div>
-    </section>
+
+    <div class="cta-band flex flex-col gap-4 rounded-3xl border border-white/20 bg-gradient-to-r from-slate-900/60 to-slate-800/60 p-8 text-center shadow-2xl">
+      <p class="text-sm uppercase tracking-[0.6em] text-amber-300">Ready to switch</p>
+      <h3 class="text-3xl font-semibold text-white">Schedule a site survey and start saving today.</h3>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <router-link class="btn-accent px-6 py-3 rounded-full shadow-xl" to="/inquire">Start a Quote</router-link>
+        <router-link class="px-6 py-3 rounded-full border border-white/30 text-sm text-white hover:text-white" to="/contact">Talk to a Specialist</router-link>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup>
-import ServicesBanner from "../assets/home4.png";
-import Hero from "./Hero.vue";
+import Hero from './Hero.vue';
+
+const homeStats = [
+  { value: '25+', label: 'Expert technicians' },
+  { value: '100+kWh', label: 'Daily energy delivery' },
+  { value: '40', label: 'Cities served' },
+];
+
+const capabilityTiles = [
+  {
+    title: 'Residential solar',
+    description: 'Rooftop and backyard setups designed for family homes and estates with smart storage.',
+    icon: 'fa-solid fa-house-chimney',
+  },
+  {
+    title: 'Commercial microgrids',
+    description: 'Reliable solar + battery arrays for schools, hotels, and manufacturing with remote monitoring.',
+    icon: 'fa-solid fa-building',
+  },
+  {
+    title: 'Water & irrigation',
+    description: 'Solar-powered pumping and filtration tailored for farms and estates to reduce diesel usage.',
+    icon: 'fa-solid fa-water',
+  },
+];
+
+const serviceHighlights = [
+  {
+    title: 'Complete solar installation',
+    description: 'We coordinate engineering, procurement, and installation so every component fits seamlessly.',
+    category: 'DELIVERY',
+    duration: '2-6 weeks',
+    detail: 'Panels • Inverters • Mounting',
+  },
+  {
+    title: 'Design review + optimization',
+    description: 'Optimized layouts, structural checks, and sun-path analysis ensure maximum yield.',
+    category: 'DESIGN',
+    duration: '1-2 weeks',
+    detail: 'Shadow analysis • Elevations',
+  },
+  {
+    title: 'Maintenance & performance',
+    description: 'Routine servicing, remote monitoring, and responsive technicians keep systems healthy.',
+    category: 'CARE',
+    duration: 'Ongoing',
+    detail: 'Cleaning • Diagnostics • Repairs',
+  },
+];
+
+const projectGallery = [
+  {
+    title: 'Kilifi Resort Microgrid',
+    location: 'Kilifi / 12kW',
+    size: 'Hybrid + Storage',
+    summary: 'A solar + battery array powering villas and spa services while cutting costs 70%.',
+    image: new URL('../assets/ourservices4.jpg', import.meta.url).href,
+  },
+  {
+    title: 'Mombasa Industrial Park',
+    location: 'Mombasa / 48kW',
+    size: 'Commercial plant',
+    summary: 'High-output panels paired with monitoring for the factory line and offices.',
+    image: new URL('../assets/ourservices2.png', import.meta.url).href,
+  },
+  {
+    title: 'Rural Water Pump',
+    location: 'Kwale / 8kW',
+    size: 'Autonomous pump',
+    summary: 'Off-grid irrigation system with intelligent controls and remote alerts.',
+    image: new URL('../assets/ourservices3.png', import.meta.url).href,
+  },
+];
 </script>

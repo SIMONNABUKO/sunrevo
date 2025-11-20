@@ -1,111 +1,116 @@
 <template>
-<!--Our Services-->
-    <div class="bg-gray-100">
-     <div class="relative bg-cover bg-center" :style="{ backgroundImage: `url(${ServicesBanner})` }">
-        <div class="absolute inset-0 bg-black/65"></div>
-            <div class="relative z-10 flex flex-col items-center justify-center min-h-[50vh]">
-                <h1 class="text-blue-200 font-normal text-center text-4xl sm:text-5xl md:text-7xl font-serif">
-                    Our Services
-                </h1>
-            </div>
-        </div>
+  <section class="section-shell space-y-16 pt-20 pb-24 reveal-on-scroll">
+    <div class="glass-panel p-8 space-y-6">
+      <p class="text-xs uppercase tracking-[0.6em] text-amber-300">What we do</p>
+      <h2 class="text-3xl md:text-4xl font-semibold text-white">Comprehensive solar services, end to end.</h2>
+      <p class="text-slate-200 leading-relaxed">
+        From the first consultation to long-term maintenance, SunRevo Power curates every step with engineering discipline and customer-first communication. We pair premium products with transparent pricing so your investment delivers reliable power for years.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <router-link to="/inquire" class="btn-accent px-5 py-3 rounded-full shadow-lg flex items-center gap-2">
+          <i class="fa-solid fa-lightbulb"></i>
+          Request a Quote
+        </router-link>
+        <router-link to="/contact" class="px-5 py-3 rounded-full border border-white/40 text-sm text-white hover:bg-white/10">Talk to our team</router-link>
+      </div>
     </div>
 
-    <!--0708834335-->
-    <!--Services Grid--> 
-    <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 mx-auto lg:w-4/5 w-[90%] -mt-14">
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/installation.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar System Installation</p>
-            <p class="text-white">Complete installation of solar panels, inverters, batteries, charge controllers, and other system components for homes, businesses, and industries.</p>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <article
+        v-for="service in serviceList"
+        :key="service.title"
+        class="card-panel flex flex-col gap-4 p-6 border border-white/20"
+      >
+        <div class="flex items-center gap-3">
+          <span class="text-2xl text-amber-300"><i :class="service.icon"></i></span>
+          <div>
+            <p class="text-sm uppercase tracking-[0.4em] text-slate-300">{{ service.focus }}</p>
+            <h3 class="text-2xl text-white font-semibold">{{ service.title }}</h3>
+          </div>
         </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/installation2.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar System Design and Consultation</p>
-            <p class="text-white">Assessing customer energy needs and designing customized solar solutions, including site surveys, load assessment, and professional recommendations.</p>
-        </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/repair.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar Maintenance and Repair</p>
-            <p class="text-white">Routine system checkups, cleaning, troubleshooting, and repair of faulty panels, inverters, batteries, and wiring to ensure peak performance.</p>
-        </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/energyaudit.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Energy Audits and Efficiency Optimization</p>
-            <p class="text-white">Evaluating energy usage and providing solutions to reduce electricity costs through solar integration and energy-efficient technologies.</p>
-        </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/last.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar Equipment Sales</p>
-            <p class="text-white">Selling high-quality solar products such as panels, batteries, inverters, solar lights, charge controllers, water pumps, and solar accessories.</p>
-        </div>
-        <div class="flex flex-col justify-between bg-blue-950 z-30 rounded-2xl text-center p-3">
-            <img src="../assets/installation1.jpg" alt="" class="rounded-t-2xl">
-            <p class="text-blue-300 font-bold text-lg font">Solar Backup and Hybrid Systems</p>
-            <p class="text-white">Installation of backup power solutions, hybrid systems, and solar battery storage for reliable power during blackouts or off-grid setups.</p>
-        </div>
+        <p class="text-sm text-slate-200 leading-relaxed">{{ service.description }}</p>
+        <ul class="space-y-2 text-slate-200 text-sm">
+          <li v-for="point in service.highlights" :key="point">• {{ point }}</li>
+        </ul>
+      </article>
     </div>
 
-    <!--Why Choose SunRevo Power-->
-    <div id="wrapper" class="flex flex-col items-center justify-center bg-white lg:w-3/5 w-[90%] mx-auto mt-7 text-blue-950 py-10 shadow shadow-blue-800">
-    <h1 class="font-semibold lg:text-3xl md:text-2xl text-xl">Why Choose SUNREVO Power?</h1>
-        <div id="sub-wrapper" class="grid lg:grid-cols-3 md:grid-cols-2 gap-5 p-4">
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Proven Reliability</h2>
-                <p>With Over 100 successful solar projects delivered nation wide,
-                our systems are built to last and perform reliably in all conditions.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Proven Reliability</h2>
-                <p>With Over 100 successful solar projects delivered nation wide,
-                our systems are built to last and perform reliably in all conditions.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Proven Reliability</h2>
-                <p>With Over 100 successful solar projects delivered nation wide,
-                our systems are built to last and perform reliably in all conditions.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Proven Reliability</h2>
-                <p>With Over 100 successful solar projects delivered nation wide,
-                our systems are built to last and perform reliably in all conditions.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Proven Reliability</h2>
-                <p>With Over 100 successful solar projects delivered nation wide,
-                our systems are built to last and perform reliably in all conditions.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Proven Reliability</h2>
-                <p>With Over 100 successful solar projects delivered nation wide,
-                our systems are built to last and perform reliably in all conditions.</p>
-            </div>
+    <div class="glass-panel p-8 space-y-8">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-xs uppercase tracking-[0.6em] text-amber-300">Why SunRevo</p>
+          <h2 class="text-3xl font-semibold text-white">The difference is in the details.</h2>
         </div>
+        <p class="text-sm uppercase tracking-[0.4em] text-slate-300">Trusted partnerships</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article v-for="value in whyChoose" :key="value.title" class="flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 p-4">
+          <p class="text-xs uppercase tracking-[0.4em] text-amber-200">{{ value.title }}</p>
+          <p class="text-sm text-slate-200 leading-relaxed">{{ value.description }}</p>
+        </article>
+      </div>
     </div>
-     <!--Our Projects-->
-    <div class="flex flex-col justify-center items-center my-10 w-full">
-       <div class="bg-blue-950 lg:w-3/5 w-[90%]">
-          <h1 class="text-center text-blue-400 text-3xl p-3 font-serif">Our Projects</h1>
-       </div>
-
-    <!--The projects-->
-       <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 my-6">
-        <div class="rounded-t-2xl lg:w-[360px] w-full flex flex-col bg-white shadow-lg items-center pb-4">
-            <img src="../assets/ourservices4.jpg" alt="services image" class="rounded-t-2xl w-full">
-            <p class="text-center font-semibold text-xl my-2 text-blue-900">12kW Solar System Mombasa</p>
-        </div>
-        <div class="rounded-t-2xl lg:w-[360px] w-full flex flex-col bg-white shadow-lg items-center pb-4">
-            <img src="../assets/ourservices2.png" alt="services image" class="rounded-t-2xl w-full">
-            <p class="text-center font-semibold text-xl my-2 text-blue-900">12kW Solar System Mombasa</p>
-        </div>
-        <div class="rounded-t-2xl lg:w-[360px] w-full flex flex-col bg-white shadow-lg items-center pb-4">
-            <img src="../assets/ourservices3.png" alt="services image" class="rounded-t-2xl w-full">
-            <p class="text-center font-semibold text-xl my-2 text-blue-900">12kW Solar System Mombasa</p>
-        </div>
-       </div>
-    </div>
+  </section>
 </template>
 
 <script setup>
-import ServicesBanner from '../assets/home4.png';
+const serviceList = [
+  {
+    title: 'Turnkey Installations',
+    focus: 'Engineering',
+    icon: 'fa-solid fa-screwdriver-wrench',
+    description: 'Full solar, storage, and controls integration for homes, rooftops, commercial sites, and agriculture.',
+    highlights: ['Site surveys & modeling', 'Quality components', 'Certified installers'],
+  },
+  {
+    title: 'Solar Design & Consultation',
+    focus: 'Planning',
+    icon: 'fa-solid fa-ruler',
+    description: 'Tailored system design based on real usage data, structures, and future growth assumptions.',
+    highlights: ['Load analysis', 'Panel layout optimization', 'Permit support'],
+  },
+  {
+    title: 'Maintenance & Monitoring',
+    focus: 'Care',
+    icon: 'fa-solid fa-heart-pulse',
+    description: 'Preventive maintenance, remote diagnostics, and on-call technicians keep yield high.',
+    highlights: ['Cleaning & inspections', 'SCADA & analytics', 'Rapid repairs'],
+  },
+  {
+    title: 'Solar Sales & Equipment',
+    focus: 'Products',
+    icon: 'fa-solid fa-bolt',
+    description: 'High-efficiency panels, batteries, inverters, and accessories sourced through trusted global suppliers.',
+    highlights: ['Warranty-backed warranties', 'Technical guidance', 'Bulk & retail orders'],
+  },
+  {
+    title: 'Water & Pumping Systems',
+    focus: 'Agriculture',
+    icon: 'fa-solid fa-water',
+    description: 'Pumping, filtration, and drip irrigation tailored for farms and remote sites.',
+    highlights: ['Off-grid controls', 'Smart sensors', 'Solar-powered desal'],
+  },
+  {
+    title: 'Power Backup Solutions',
+    focus: 'Resilience',
+    icon: 'fa-solid fa-server',
+    description: 'Hybrid systems that combine the grid with batteries to ride through outage windows.',
+    highlights: ['Instant switchover', 'Bespoke control logic', 'Energy storage sizing'],
+  },
+];
+
+const whyChoose = [
+  {
+    title: 'People',
+    description: 'Our engineers are certified and field-tested, blending safety with modern PV practices.',
+  },
+  {
+    title: 'Process',
+    description: 'Structured delivery with progress reports, visual updates, and transparent pricing.',
+  },
+  {
+    title: 'Product',
+    description: 'We only work with trusted global brands to ensure longevity, even under coastal conditions.',
+  },
+];
 </script>

@@ -1,58 +1,63 @@
 <template>
-<!--Why Choose SunRevo Power-->
-    <div id="wrapper" class="flex flex-col items-center justify-center bg-white lg:w-3/5 w-[90%] mx-auto mt-7 text-blue-950 py-10 shadow shadow-blue-800">
-   <h1 class="font-semibold lg:text-3xl md:text-2xl text-xl">Why Choose SUNREVO Power?</h1>
-        <div id="sub-wrapper" class="grid lg:grid-cols-3 md:grid-cols-2 gap-5 p-4">
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Trusted Solar Experts</h2>
-                <p>We bring years of hands-on experience to every project, ensuring reliable and professional solar solutions.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Affordable, High-Quality Products</h2>
-                <p>Our systems are designed to give you the best performance at a price that fits your budget.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Professional Installation</h2>
-                <p>Our skilled technicians install every system with precision for maximum efficiency and long-term durability.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Proven Reliability</h2>
-                <p>With Over 100 successful solar projects delivered nation wide,
-                our systems are built to last and perform reliably in all conditions.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Fast and Reliable Support</h2>
-                <p>We provide timely assistance, maintenance, and after-sale support to keep your system running smoothly.</p>
-            </div>
-            <div class="border-2 border-blue-800 rounded-lg p-3">
-                <h2 class="lg:text-2xl text-blue-800 text-xl hover:text-blue-400">Commitment to Sustainability</h2>
-                <p>Choosing us means choosing clean, renewable energy that protects the environment and reduces electricity costs.</p>
-            </div>
-        </div>
+  <section class="section-shell space-y-10 py-20 reveal-on-scroll">
+    <div class="glass-panel p-10 space-y-6">
+      <p class="text-xs uppercase tracking-[0.6em] text-amber-300">About SunRevo Power</p>
+      <h2 class="text-3xl md:text-4xl font-semibold text-white">We are a Kenyan solar team delivering confident energy.</h2>
+      <p class="text-slate-200 leading-relaxed">
+        Our story began with a focus on solar lighting and has grown into a multidisciplinary solar studio. We blend technical design, premium installations, and empathetic service so every customer feels informed and supported.
+      </p>
     </div>
-     <!--Our Projects-->
-    <div class="flex flex-col justify-center items-center my-10 w-full">
-       <div class="bg-blue-950 lg:w-3/5 w-[90%]">
-          <h1 class="text-center text-blue-400 text-3xl p-3 font-serif">Our Projects</h1>
-       </div>
-    <!--The projects-->
-       <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 my-6">
-        <div class="rounded-t-2xl lg:w-[360px] w-full flex flex-col bg-white shadow-lg items-center pb-4">
-            <img src="../assets/ourservices4.jpg" alt="services image" class="rounded-t-2xl w-full">
-            <p class="text-center font-semibold text-xl my-2 text-blue-900">12kW Solar System Mombasa</p>
-        </div>
-        <div class="rounded-t-2xl lg:w-[360px] w-full flex flex-col bg-white shadow-lg items-center pb-4">
-            <img src="../assets/ourservices2.png" alt="services image" class="rounded-t-2xl w-full">
-            <p class="text-center font-semibold text-xl my-2 text-blue-900">12kW Solar System Mombasa</p>
-        </div>
-        <div class="rounded-t-2xl lg:w-[360px] w-full flex flex-col bg-white shadow-lg items-center pb-4">
-            <img src="../assets/ourservices3.png" alt="services image" class="rounded-t-2xl w-full">
-            <p class="text-center font-semibold text-xl my-2 text-blue-900">12kW Solar System Mombasa</p>
-        </div>
-       </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      <article
+        v-for="value in valuePillars"
+        :key="value.title"
+        class="glass-panel p-6 space-y-3"
+      >
+        <h3 class="text-2xl text-white font-semibold">{{ value.title }}</h3>
+        <p class="text-sm text-slate-200 leading-relaxed">{{ value.description }}</p>
+        <div class="text-xs uppercase tracking-[0.4em] text-amber-300">{{ value.metric }}</div>
+      </article>
     </div>
+    <div class="glass-panel p-8">
+      <h3 class="text-2xl text-white font-semibold mb-4">Journey highlights</h3>
+      <div class="grid gap-4 md:grid-cols-3">
+        <div v-for="milestone in timeline" :key="milestone.title" class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">
+          <p class="text-amber-300 text-xs uppercase tracking-[0.4em]">{{ milestone.year }}</p>
+          <p class="font-semibold text-white">{{ milestone.title }}</p>
+          <p class="leading-snug">{{ milestone.detail }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
-<script>
+<script setup>
+const valuePillars = [
+  {
+    title: 'Trusted Expertise',
+    description: 'Our engineers are certified, experienced with coastal climates, and routinely trained on safety protocols.',
+    metric: '25+ field specialists',
+  },
+  {
+    title: 'Responsible Delivery',
+    description: 'We document every installation, run structural analyses, and conduct full client walkthroughs.',
+    metric: '100% compliance',
+  },
+  {
+    title: 'Customer Care',
+    description: 'Live monitoring, quick-response repairs, and scheduled maintenance keep systems healthy.',
+    metric: '24/7 support',
+  },
+  {
+    title: 'Sustainable Growth',
+    description: 'Partnerships with suppliers and NGOs ensure accessible solutions for homes and institutions.',
+    metric: '20 communities served',
+  },
+];
 
+const timeline = [
+  { year: '2010', title: 'Founding', detail: 'Started as a solar lighting provider in Mombasa, bringing clean tech to homes.' },
+  { year: '2015', title: 'Expansion', detail: 'Grew into bespoke rooftop design and commercial microgrids across the coast.' },
+  { year: '2022', title: 'Innovation', detail: 'Launched hybrid backup and agricultural pumping offerings with smart telemetry.' },
+];
 </script>
